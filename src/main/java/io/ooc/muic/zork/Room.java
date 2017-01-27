@@ -5,9 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by gigadot on 12-Jan-17.
- */
+
 public class Room {
     private Monster monster = null;
     private Item item = null;

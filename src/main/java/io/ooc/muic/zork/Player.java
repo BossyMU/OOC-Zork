@@ -3,10 +3,8 @@ package io.ooc.muic.zork;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by gigadot on 12-Jan-17.
- */
-public class Player extends Mortal{
+
+public class Player extends Status {
   private int level;
   private int exp;
   private List<Item> items = new ArrayList<Item>();

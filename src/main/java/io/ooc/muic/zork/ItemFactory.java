@@ -2,9 +2,6 @@ package io.ooc.muic.zork;
 
 import java.util.Random;
 
-/**
- * Created by gigadot on 12-Jan-17.
- */
 public class ItemFactory {
   static Random random = new Random();
 

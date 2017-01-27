@@ -1,9 +1,6 @@
 package io.ooc.muic.zork;
 
-/**
- * Created by Sam on 1/26/17.
- */
-public abstract class Mortal {
+public abstract class Status {
   private String name;
 
   private int maxHealth;
@@ -11,7 +8,7 @@ public abstract class Mortal {
   private int armor;
   private int damange;
 
-  public Mortal(String name, int maxHealth, int armor, int damange) {
+  public Status(String name, int maxHealth, int armor, int damange) {
     this.name = name;
     this.maxHealth = maxHealth;
     this.health = maxHealth;

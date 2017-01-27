@@ -2,9 +2,7 @@ package io.ooc.muic.zork;
 
 import java.util.Scanner;
 
-/**
- * Created by gigadot on 12-Jan-17.
- */
+
 public class ZorkGame {
 
     private Room currentRoom;

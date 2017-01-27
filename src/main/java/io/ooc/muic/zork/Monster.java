@@ -1,9 +1,7 @@
 package io.ooc.muic.zork;
 
-/**
- * Created by gigadot on 12-Jan-17.
- */
-public class Monster extends Mortal{
+
+public class Monster extends Status {
   private int level;
 
   public Monster(String name, int maxHealth, int armor, int damage, int level) {
