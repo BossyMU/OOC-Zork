@@ -4,15 +4,12 @@ import java.util.Random;
 
 public class MonsterFactory {
   static Random random = new Random();
-  static int level;
-
-  public MonsterFactory(int level) {
-    this.level = level;
-  }
 
   public Monster makeMonster(String itemType) {
     switch (itemType) {
-      case "Monster": return new Monster("Monster", random.nextInt(5) * level, random.nextInt(2) * level, random.nextInt(3) * level, level);
+      case "Thief": return new Monster("Thief", random.nextInt(8) , (random.nextInt(3)+1)*2,1);
+      case "Bandit" : return new Monster("Bandit", random.nextInt(8) * 2, (random.nextInt(3)+1) * 3,2);
+      case "Criminal" : return new Monster("Criminal", random.nextInt(8) * 3, (random.nextInt(3)+1) * 3,3);
       default: return null;
     }
   }

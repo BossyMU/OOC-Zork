@@ -5,14 +5,12 @@ public abstract class Status {
 
   private int maxHealth;
   private int health;
-  private int armor;
   private int damange;
 
-  public Status(String name, int maxHealth, int armor, int damange) {
+  public Status(String name, int maxHealth, int damange) {
     this.name = name;
     this.maxHealth = maxHealth;
     this.health = maxHealth;
-    this.armor = armor;
     this.damange = damange;
 
   }
@@ -31,14 +29,6 @@ public abstract class Status {
 
   public boolean isDeath() {
     return 0 == this.health;
-  }
-
-  public int getArmor() {
-    return armor;
-  }
-
-  public void setArmor(int armor) {
-    this.armor = armor;
   }
 
   public int getDamange() {

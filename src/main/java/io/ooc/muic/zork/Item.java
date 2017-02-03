@@ -2,23 +2,19 @@ package io.ooc.muic.zork;
 
 
 public abstract class Item extends ItemFactory {
-  private int numberOfUse;
   private String name;
 
-  public Item(String name, int numberOfUse) {
+  public Item(String name, int level) {
     this.name = name;
-    this.numberOfUse = numberOfUse;
+    this.level = level;
   }
 
   public String getName() {
     return name;
   }
-
-  public int getNumberOfUse() {
-    return numberOfUse;
+  public void setLevel(int level) {
+    this.level = level;
   }
 
-  public void setNumberOfUse(int numberOfUse) {
-    this.numberOfUse = numberOfUse;
-  }
 }
+

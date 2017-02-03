@@ -5,54 +5,53 @@ import java.util.List;
 
 
 public class Player extends Status {
-  private int level;
-  private int exp;
-  private List<Item> items = new ArrayList<Item>();
-  private final static int MAX_ITEMS = 3;
+  private int positionX = 0;
 
-  public Player(String name, int maxHealth, int armor, int damage) {
-    super(name, maxHealth, armor, damage);
-    this.exp = 0;
-    this.level = 1;
+  private int positionY = 0;
+
+  private Room currentRoom;
+
+  private int numberOfItem = 0;
+
+  private Weapon weapon = new Weapon("bareHand",0,1);
+
+  public Player(String name, int maxHealth,int damage) {
+    super(name, maxHealth, damage);
   }
 
-  public int getLevel() {
-    return level;
+  public Room getCurrentRoom() {
+    return currentRoom;
   }
 
-  public void setLevel(int level) {
-    this.level = level;
+  public void setCurrentRoom(Room currentRoom) {
+    this.currentRoom = currentRoom;
   }
 
-  public int getExp() {
-    return this.exp;
+  public int getPositionX() {
+    return positionX;
   }
 
-  public void addExp(int exp) {
-    int totalExp = this.getExp() + exp;
-    this.exp = totalExp;
-
-    if (totalExp > level * 100) {
-      this.exp = totalExp - (level * 100);
-      levelUp();
-    }
+  public void setPositionX(int positionX) {
+    this.positionX = positionX;
   }
 
-  public boolean addItem(Item item) {
-    if (items.size() < MAX_ITEMS) {
-      items.add(item);
-      return true;
-    } else {
-      return false;
-    }
+  public int getPositionY() {
+    return positionY;
   }
 
-  public void levelUp() {
-    setHealth(getHealth() + 5);
-    setArmor(getArmor() + 2);
-    setDamange(getDamange() + 3);
-
-    setLevel(getLevel() + 1);
+  public void setPositionY(int positionY) {
+    this.positionY = positionY;
   }
 
+  public int getNumberOfItem() {
+    return numberOfItem;
+  }
+
+  public void setNumberOfItem(int numberOfItem) {
+    this.numberOfItem = numberOfItem;
+  }
+
+  public Weapon getWeapon() { return weapon; }
+
+  public void setWeapon(Weapon weapon) { this.weapon = weapon; }
 }

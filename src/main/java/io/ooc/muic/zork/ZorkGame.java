@@ -1,41 +1,46 @@
 package io.ooc.muic.zork;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class ZorkGame {
+public class ZorkGame extends CommandParser {
 
     private Room currentRoom;
     private Player player;
+    private int gameLv = 1;
 
     public void start() {
+        ArrayList<ArrayList<Room>> gameMap = new GameMapGenerator().generateMap(gameLv);
         Scanner scanner = new Scanner(System.in);
         boolean quit = false;
-        System.out.println("Zork: Hello, Welcome to my world.");
+        System.out.println("Zork: Hello, Welcome to my world. If you need any help type 'help'");
 
-        player = new Player("Kogusaki",100, 10, 3);
-        currentRoom = new Room();
-        currentRoom.setExit("north", new Room());
+        player = new Player("Kogusaki",20, 3);
+        player.setCurrentRoom(currentRoom);
 
         while (!quit) {
+            if(player.isDeath()){
+                System.out.println("Game Over");
+                System.exit(0);
+            }else if(passStage){
+                gameMap = new GameMapGenerator().generateMap(gameLv + 1);
+                gameLv++;
+                passStage = false;
+                player.setPositionY(0);
+                player.setPositionX(0);
+                if(gameLv==4){
+                    System.out.println("You Win");
+                    System.exit(0);
+                }
+            }
             System.out.print("You: ");
             String input = scanner.nextLine();
-
-
-
-
-            quit = input.equals("quit");
-            if (!quit) {
-                System.out.println("Zork: " + input);
+            String[] seperate = input.split(" ");
+            takeInput(seperate, player, gameMap);
+            if (input.equals("quit")) {
+                System.exit(0);
             }
         }
     }
-
-    public void walk() {
-
-    }
-
-
-
-
 }

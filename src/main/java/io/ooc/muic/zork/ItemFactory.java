@@ -4,11 +4,13 @@ import java.util.Random;
 
 public class ItemFactory {
   static Random random = new Random();
+  static int level;
 
-  public Item makeItem(String itemType) {
+  public Weapon makeItem(String itemType) {
     switch (itemType) {
-      case "Potion": return new Potion("Potion", random.nextInt(10), 10 * random.nextInt(10));
-      case "Weapon": return new Weapon("Sword", random.nextInt(10), 10 * random.nextInt(10));
+      case "Sword": return new Weapon("Sword", 1+random.nextInt(3)*level,level);
+      case "Spear": return new Weapon("Spear",2 * (1+random.nextInt(2)*level),level);
+      case "Axe": return new Weapon("Axe", 3 * (level),level);
       default: return null;
     }
   }

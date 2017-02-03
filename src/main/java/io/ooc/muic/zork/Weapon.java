@@ -3,8 +3,10 @@ package io.ooc.muic.zork;
 public class Weapon extends Item{
   private int damage;
 
-  public Weapon(String name, int numberOfUse, int damage) {
-    super(name, numberOfUse);
+  private int level;
+
+  public Weapon(String name, int damage, int level) {
+    super(name, level);
     this.damage = damage;
   }
 
@@ -12,8 +14,4 @@ public class Weapon extends Item{
     return damage;
   }
 
-  public int use() {
-    setNumberOfUse(getNumberOfUse() - 1);
-    return damage;
-  }
 }
