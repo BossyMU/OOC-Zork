@@ -20,6 +20,9 @@ public class ZorkGame extends CommandParser {
         player.setCurrentRoom(currentRoom);
 
         while (!quit) {
+            System.out.print("You: ");
+            String input = scanner.nextLine();
+            String[] seperate = input.split(" ");
             if(player.isDeath()){
                 System.out.println("Game Over");
                 System.exit(0);
@@ -33,14 +36,10 @@ public class ZorkGame extends CommandParser {
                     System.out.println("You Win");
                     System.exit(0);
                 }
-            }
-            System.out.print("You: ");
-            String input = scanner.nextLine();
-            String[] seperate = input.split(" ");
-            takeInput(seperate, player, gameMap);
-            if (input.equals("quit")) {
+            }else if (input.equals("quit")) {
                 System.exit(0);
             }
+            takeInput(seperate, player, gameMap);
         }
     }
 }
